@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "VideoPlayer-Fontend": {
+    "VideoPlayer-FrontEnd": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/VideoPlayer-Fontend",
+            "outputPath": "dist/VideoPlayer-FrontEnd",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/font-awesome/css/font-awesome.min.css"              
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ]
           },
           "configurations": {
             "production": {
@@ -57,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "VideoPlayer-Fontend:build"
+            "browserTarget": "VideoPlayer-FrontEnd:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "VideoPlayer-Fontend:build:production"
+              "browserTarget": "VideoPlayer-FrontEnd:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "VideoPlayer-Fontend:build"
+            "browserTarget": "VideoPlayer-FrontEnd:build"
           }
         },
         "test": {
@@ -102,7 +107,7 @@
         }
       }
     },
-    "VideoPlayer-Fontend-e2e": {
+    "VideoPlayer-FrontEnd-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -111,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "VideoPlayer-Fontend:serve"
+            "devServerTarget": "VideoPlayer-FrontEnd:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "VideoPlayer-Fontend:serve:production"
+              "devServerTarget": "VideoPlayer-FrontEnd:serve:production"
             }
           }
         },
@@ -131,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "VideoPlayer-Fontend"
+  "defaultProject": "VideoPlayer-FrontEnd"
 }
