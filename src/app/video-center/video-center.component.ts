@@ -11,14 +11,31 @@ import { VideoService } from '../video.service';
 })
 export class VideoCenterComponent implements OnInit {
 
-  videos: Array<IVideo> ;
+  videos: Array<any> ;
 
-  selectedVideo: IVideo;
+  selectedVideo: any;
+  private hidenNewVideo: boolean= true;
   public errorMsg;
 
   onSelectVideo(video: any) {
     this.selectedVideo = video;
+    this.hidenNewVideo= true;
     console.log(this.selectedVideo);
+  }
+
+  onSubmitAddVideo(video: IVideo){
+    console.log("info_ " + video.Title);
+  this._videoService.addVideo(video)
+        .subscribe(resNewVideo => {
+    this.videos.push(resNewVideo);
+    this.hidenNewVideo= true;
+    this.selectedVideo = resNewVideo;
+  } );
+
+  }
+
+  newVideo(){
+    this.hidenNewVideo = false;
   }
   constructor(private _videoService:VideoService) { }
 

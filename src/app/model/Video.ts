@@ -1,6 +1,6 @@
 export interface IVideo {
-    Id: string;
-    Title: string;
-    Url: string;
-    Descreption:string
+    Id?: string;
+    Title?: string;
+    Url?: string;
+    Descreption?:string
   }

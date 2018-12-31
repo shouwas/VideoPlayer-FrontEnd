@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { IVideo } from './model/video';
 import { Observable } from 'rxjs';
 import 'rxjs/add/operator/catch';
@@ -19,6 +19,22 @@ export class VideoService {
   getVideos(): Observable<IVideo[]> {
     return this.http.get<IVideo[]>(this._getUrl)
                     .catch(this.errorHandler); 
+  }
+
+  addVideo(video: IVideo): Observable<IVideo[]> {
+    let headers = new HttpHeaders({'ConteNT-Type': 'application/json'});
+    console.log(' info sur video'+ video);
+    return this.http.post<IVideo[]>(this._getUrl, JSON.stringify(video), {headers : headers})
+                    .catch(this.errorHandler); 
+                    
+  }
+
+  updateVideo(video: IVideo): Observable<IVideo[]> {
+    let headers = new HttpHeaders({'ConteNT-Type': 'application/json'});
+    console.log(' info sur video'+ video);
+    return this.http.post<IVideo[]>(this._getUrl + video.Id, JSON.stringify(video), {headers : headers})
+                    .catch(this.errorHandler); 
+                    
   }
 
   errorHandler(error: HttpErrorResponse ){

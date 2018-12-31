@@ -11,6 +11,7 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { VideoListComponent } from './video-list/video-list.component';
 import { HeaderComponent } from './header/header.component';
 import { VideoService } from './video.service';
+import { SafePipe } from './safe.pipe';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { VideoService } from './video.service';
     VideoCenterComponent,
     VideoDetailComponent,
     VideoListComponent,
-    HeaderComponent
+    HeaderComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

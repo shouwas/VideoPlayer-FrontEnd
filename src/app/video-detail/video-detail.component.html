@@ -1,4 +1,7 @@
-
+<div>
+    <iframe width="100%" height="300"  [src]="video.Url | safe"> 
+      </iframe>
+</div>
 <div>
   <form>
     <div *ngIf="editTitle" class="form-group">
@@ -15,6 +18,6 @@
       <textarea rows="5" class="form-control" name="desc" required placeholder="Descreption"
       [(ngModel)]="video.Descreption"></textarea>
     </div>
-
+      <button type="button" (click)="updateVideo()" class="btn btn-primary">Update</button>
   </form>
 </div>
